@@ -1,7 +1,9 @@
+import FeaturedBooks from "@/components/home/FeatureBooks";
 import Hero from "@/components/home/Hero";
 import LibraryMarquee from "@/components/home/LibraryMarquee";
-import FeaturedBooks from "@/components/home/FeaturedBooks";
+
 import ReaderBenefits from "@/components/home/ReaderBenefits";
+import ReaderStories from "@/components/home/ReaderStories";
 
 export default function Home() {
   return (
@@ -10,6 +12,7 @@ export default function Home() {
       <LibraryMarquee />
       <FeaturedBooks />
       <ReaderBenefits />
+      <ReaderStories />
     </>
   );
 }
