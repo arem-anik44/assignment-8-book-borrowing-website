@@ -7,12 +7,12 @@ import { BorrowProvider } from "@/context/BorrowContext";
 export const metadata = {
   title: "BiblioLoom | Online Book Borrowing",
   description:
-    "A modern online book borrowing platform built with Next.js, BetterAuth, MongoDB, Tailwind CSS, and DaisyUI.",
+    "Browse, search, and borrow books online from our growing collection.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="light">
       <body className="min-h-screen flex flex-col">
         <BorrowProvider>
           <Toaster position="top-right" />

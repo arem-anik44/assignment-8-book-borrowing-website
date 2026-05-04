@@ -14,8 +14,6 @@ const Navbar = () => {
   const user = session?.user;
   const [menuOpen, setMenuOpen] = useState(false);
 
-  console.log(user, isPending, "user");
-
   const handleLogout = async () => {
     await authClient.signOut();
     toast.success("Logged out successfully");

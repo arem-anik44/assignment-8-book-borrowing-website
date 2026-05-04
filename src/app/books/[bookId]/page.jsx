@@ -7,8 +7,6 @@ const BookDetailsPage = async ({ params }) => {
   const { bookId } = await params;
   const book = getBookById(bookId);
 
-  console.log(bookId, "bookId");
-
   if (!book) {
     notFound();
   }

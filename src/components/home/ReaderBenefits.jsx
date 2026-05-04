@@ -12,7 +12,7 @@ const benefits = [
     icon: <FiShield className="text-3xl text-emerald-600" />,
     title: "Secure Profiles",
     description:
-      "Your account is protected with BetterAuth. Sign in with email or Google and manage your profile safely.",
+      "Your account is protected with secure authentication. Sign in with email or Google and manage your profile safely.",
   },
   {
     icon: <FiFilter className="text-3xl text-emerald-600" />,
