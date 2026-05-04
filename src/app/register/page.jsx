@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
-import { FaGoogle } from "react-icons/fa";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 import { FiUser, FiMail, FiLock } from "react-icons/fi";
 
 const RegisterPage = () => {
@@ -129,14 +129,29 @@ const RegisterPage = () => {
         {/* divider */}
         <div className="divider text-sm text-slate-400 my-6">OR</div>
 
-        {/* google login */}
-        <button
-          onClick={handleGoogleLogin}
-          className="btn btn-outline w-full flex items-center gap-2"
-        >
-          <FaGoogle className="text-lg" />
-          Continue with Google
-        </button>
+        {/* social login */}
+        <div className="flex flex-col gap-3">
+          <button
+            onClick={handleGoogleLogin}
+            className="btn btn-outline w-full flex items-center gap-2"
+          >
+            <FaGoogle className="text-lg" />
+            Continue with Google
+          </button>
+          <button
+            onClick={async () => {
+              const { error } = await authClient.signIn.social({
+                provider: "github",
+                callbackURL: "/",
+              });
+              if (error) toast.error(error.message || "GitHub login failed");
+            }}
+            className="btn btn-outline w-full flex items-center gap-2"
+          >
+            <FaGithub className="text-lg" />
+            Continue with GitHub
+          </button>
+        </div>
 
         {/* login link */}
         <p className="text-center text-sm text-slate-600 mt-6">
