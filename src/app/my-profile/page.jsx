@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import RequireAuth from "@/components/auth/RequireAuth";
 import { useBorrow } from "@/context/BorrowContext";
 
@@ -56,6 +57,15 @@ const MyProfilePage = () => {
                 <span className="text-slate-500">Books Borrowed</span>
                 <span className="text-slate-900">{borrowedBooks.length}</span>
               </div>
+            </div>
+
+            <div className="pt-4">
+              <Link
+                href={"/my-profile/update"}
+                className="btn bg-emerald-600 text-white hover:bg-emerald-700"
+              >
+                Update Information
+              </Link>
             </div>
           </div>
 
