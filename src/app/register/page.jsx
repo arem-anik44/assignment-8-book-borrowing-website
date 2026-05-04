@@ -6,13 +6,14 @@ import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
 import { FaGoogle, FaGithub } from "react-icons/fa";
-import { FiUser, FiMail, FiLock } from "react-icons/fi";
+import { FiUser, FiMail, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
 
 const RegisterPage = () => {
   const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleRegister = async (e) => {
@@ -63,17 +64,17 @@ const RegisterPage = () => {
             <label className="text-sm font-medium text-slate-700 mb-1 block">
               Name
             </label>
-            <div className="relative">
-              <FiUser className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+            <label className="input input-bordered flex items-center gap-2 w-full">
+              <FiUser className="text-slate-400" />
               <input
                 type="text"
                 placeholder="Your full name"
-                className="input input-bordered w-full pl-10"
+                className="grow"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
               />
-            </div>
+            </label>
           </div>
 
           {/* email */}
@@ -81,17 +82,17 @@ const RegisterPage = () => {
             <label className="text-sm font-medium text-slate-700 mb-1 block">
               Email
             </label>
-            <div className="relative">
-              <FiMail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+            <label className="input input-bordered flex items-center gap-2 w-full">
+              <FiMail className="text-slate-400" />
               <input
                 type="email"
                 placeholder="you@example.com"
-                className="input input-bordered w-full pl-10"
+                className="grow"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
-            </div>
+            </label>
           </div>
 
           {/* password */}
@@ -99,17 +100,24 @@ const RegisterPage = () => {
             <label className="text-sm font-medium text-slate-700 mb-1 block">
               Password
             </label>
-            <div className="relative">
-              <FiLock className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+            <label className="input input-bordered flex items-center gap-2 w-full">
+              <FiLock className="text-slate-400" />
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="Create a password"
-                className="input input-bordered w-full pl-10"
+                className="grow"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-            </div>
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="text-slate-400 hover:text-slate-600"
+              >
+                {showPassword ? <FiEyeOff /> : <FiEye />}
+              </button>
+            </label>
           </div>
 
           {/* register button */}
