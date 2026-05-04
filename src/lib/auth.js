@@ -22,5 +22,9 @@ export const auth = betterAuth({
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
     },
   },
-  trustedOrigins: [process.env.BETTER_AUTH_URL],
+  trustedOrigins: [
+    process.env.BETTER_AUTH_URL,
+    "https://assignment-8-book-borrowing-website.vercel.app",
+    /\.vercel\.app$/,
+  ],
 });
